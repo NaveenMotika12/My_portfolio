@@ -5,7 +5,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.12fr 0.88fr;
   align-items: center;
   gap: 3rem;
 }
@@ -160,14 +160,14 @@
 }
 
 .portraitCard {
-  padding: 0.75rem;
+  padding: 0.7rem;
   border-radius: var(--radius-lg);
 }
 
 .portraitWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--accent-border);
@@ -182,75 +182,127 @@
 
 .portraitTag {
   position: absolute;
-  bottom: 0.75rem;
-  left: 0.75rem;
+  bottom: 0.7rem;
+  left: 0.7rem;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   padding: 0.35rem 0.8rem;
   border-radius: var(--radius-full);
-  background: rgba(5, 8, 17, 0.82);
+  background: rgba(5, 8, 17, 0.84);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(56, 189, 248, 0.35);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 600;
   color: #f8fafc;
 }
 
-.codeCard {
+.streamCard {
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  padding: 1rem 1.1rem;
 }
 
-.codeHeader {
+.streamHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1.1rem;
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.65rem;
   border-bottom: 1px solid var(--border-subtle);
-  background-color: rgba(0, 0, 0, 0.24);
 }
 
-.dots {
-  display: flex;
-  gap: 0.42rem;
-}
-
-.dots span {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.dots span:first-child {
-  background-color: #ef4444;
-}
-
-.dots span:nth-child(2) {
-  background-color: #f59e0b;
-}
-
-.dots span:nth-child(3) {
-  background-color: #10b981;
-}
-
-.fileName {
+.streamTitle {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+}
+
+.streamIcon {
+  color: var(--accent-neon);
+}
+
+.streamLive {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-neon);
+}
+
+.streamList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.streamItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.42rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: all 240ms ease;
+  opacity: 0.68;
+}
+
+.streamActive {
+  opacity: 1;
+  background: var(--accent-neon-soft);
+  border-color: var(--accent-border);
+  transform: translateX(4px);
+}
+
+.streamLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.streamDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.streamActive .streamDot {
+  background: var(--accent-neon);
+  box-shadow: 0 0 8px var(--accent-neon);
+}
+
+.streamNode {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.streamDetail {
+  font-size: 0.72rem;
   color: var(--text-muted);
 }
 
-.codeBody {
-  padding: 1.05rem 1.2rem;
+.streamBadge {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  line-height: 1.65;
-  color: var(--text-primary);
-  overflow-x: auto;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.16rem 0.48rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent-primary);
+}
+
+.streamActive .streamBadge {
+  background: var(--accent-neon);
+  color: #050811;
 }
 
 @media (max-width: 960px) {

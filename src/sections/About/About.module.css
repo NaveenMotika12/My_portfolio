@@ -1,7 +1,7 @@
 .layout {
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 2.5rem;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 2.25rem;
   align-items: start;
 }
 
@@ -17,31 +17,45 @@
   line-height: 1.75;
 }
 
-.strengthsWrap {
+.splitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
   margin-top: 0.5rem;
 }
 
-.strengthsTitle {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accent-neon);
-  margin-bottom: 0.75rem;
+.splitCard {
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
 }
 
-.strengthsList {
+.splitHead {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.65rem;
 }
 
-.strengthChip {
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 0.42rem 0.85rem;
-  border-radius: var(--radius-full);
+.splitIcon {
+  color: var(--accent-neon);
+  flex-shrink: 0;
+}
+
+.splitTitle {
+  font-size: 0.98rem;
+  font-weight: 700;
   color: var(--text-primary);
+}
+
+.splitList {
+  padding-left: 1.05rem;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
 .highlightsGrid {
@@ -53,9 +67,6 @@
 .highlightCard {
   border-radius: var(--radius-md);
   padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
 }
 
 .highlightLabel {
@@ -64,6 +75,8 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.35rem;
 }
 
 .highlightValue {
@@ -72,13 +85,14 @@
   color: var(--text-primary);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .layout {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
+  .splitGrid,
   .highlightsGrid {
     grid-template-columns: 1fr;
   }

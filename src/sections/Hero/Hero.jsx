@@ -1,17 +1,28 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Download, MapPin, Terminal } from 'lucide-react';
+import { Activity, ArrowRight, Download, MapPin } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon } from '../../components/Icons/SocialIcons';
+import TiltCard from '../../components/TiltCard/TiltCard';
 import { profile } from '../../data/profile';
 import { siteConfig } from '../../config/siteConfig';
 import styles from './Hero.module.css';
 
+const STREAM_STEPS = [
+  { node: 'React / RN Client', detail: 'JSX · Hooks · State', status: 'UI' },
+  { node: 'API Gateway :8080', detail: 'REST · Rate Limit · CORS', status: '200' },
+  { node: 'Auth & Express :3001', detail: 'JWT · Middleware · Validation', status: 'OK' },
+  { node: 'Redis Cache', detail: 'Semantic & Session Cache', status: 'HIT' },
+  { node: 'PostgreSQL + pgvector', detail: 'Relational + Vector Search', status: 'SQL' },
+  { node: 'FastAPI + Gemini RAG', detail: 'AI Context & Streaming', status: 'AI' },
+];
+
 /**
- * Hero section with live typing role, clean framed portrait card, and 3D glassmorphic terminal.
+ * Hero section with live typing role, 3D portrait card, and live Full-Stack request stream.
  */
 export default function Hero({ onOpenResume }) {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     const currentRole = profile.roleSubtitles[roleIndex];
@@ -32,6 +43,13 @@ export default function Hero({ onOpenResume }) {
 
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, roleIndex]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % STREAM_STEPS.length);
+    }, 1400);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="top" className={styles.hero}>
@@ -106,7 +124,7 @@ export default function Hero({ onOpenResume }) {
         </div>
 
         <aside className={`${styles.visualCol} animate-fade-in delay-2`}>
-          <div className={`${styles.portraitCard} glass-panel card-3d`}>
+          <TiltCard className={styles.portraitCard}>
             <div className={styles.portraitWrap}>
               <img
                 src={profile.profileImage}
@@ -118,31 +136,37 @@ export default function Hero({ onOpenResume }) {
                 Full Stack · Backend · AI
               </span>
             </div>
-          </div>
+          </TiltCard>
 
-          <div className={`${styles.codeCard} glass-panel card-3d`} aria-label="Developer summary">
-            <div className={styles.codeHeader}>
-              <div className={styles.dots} aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </div>
-              <span className={styles.fileName}>
-                <Terminal size={13} aria-hidden="true" />
-                motika_naveen.config.js
+          <TiltCard className={styles.streamCard} aria-label="Live Full-Stack Architecture Stream">
+            <div className={styles.streamHeader}>
+              <span className={styles.streamTitle}>
+                <Activity size={14} className={styles.streamIcon} aria-hidden="true" />
+                LIVE FULL-STACK PIPELINE
               </span>
+              <span className={styles.streamLive}>● STREAMING</span>
             </div>
-            <pre className={styles.codeBody}>
-              <code>
-{`const engineer = {
-  role: "Full Stack | Backend | AI",
-  stack: ["React", "Node.js", "Python", "FastAPI"],
-  data: ["PostgreSQL", "Redis", "pgvector"],
-  ai: ["Gemini API", "RAG", "OpenAI API"]
-};`}
-              </code>
-            </pre>
-          </div>
+            <ul className={styles.streamList}>
+              {STREAM_STEPS.map((step, idx) => {
+                const isActive = idx === activeStep;
+                return (
+                  <li
+                    key={step.node}
+                    className={`${styles.streamItem} ${isActive ? styles.streamActive : ''}`}
+                  >
+                    <div className={styles.streamLeft}>
+                      <span className={styles.streamDot} aria-hidden="true" />
+                      <div>
+                        <div className={styles.streamNode}>{step.node}</div>
+                        <div className={styles.streamDetail}>{step.detail}</div>
+                      </div>
+                    </div>
+                    <span className={styles.streamBadge}>{step.status}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </TiltCard>
         </aside>
       </div>
     </section>

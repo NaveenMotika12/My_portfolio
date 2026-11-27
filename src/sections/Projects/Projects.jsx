@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowUpRight, ExternalLink, FolderGit2, Layers } from 'lucide-react';
 import { GitHubIcon } from '../../components/Icons/SocialIcons';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
+import TiltCard from '../../components/TiltCard/TiltCard';
 import ProjectModal from '../../components/ProjectModal/ProjectModal';
 import { projects } from '../../data/projects';
 import styles from './Projects.module.css';
@@ -52,7 +53,7 @@ export default function Projects() {
 
         <div className={styles.grid}>
           {filteredProjects.map((project) => (
-            <article key={project.id} className={`${styles.card} glass-panel card-3d`}>
+            <TiltCard key={project.id} as="article" className={styles.card}>
               <div className={styles.cardTop}>
                 <div className={styles.topLeft}>
                   <div className={styles.folderIcon}>
@@ -144,7 +145,7 @@ export default function Projects() {
                 <span>View Technical Case Study</span>
                 <ArrowUpRight size={16} aria-hidden="true" />
               </button>
-            </article>
+            </TiltCard>
           ))}
         </div>
       </div>

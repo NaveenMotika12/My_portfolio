@@ -1,5 +1,6 @@
 import { Database, Layers, Layout, Server } from 'lucide-react';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
+import TiltCard from '../../components/TiltCard/TiltCard';
 import { skillCategories } from '../../data/skills';
 import styles from './Skills.module.css';
 
@@ -27,7 +28,7 @@ export default function Skills() {
           {skillCategories.map((category) => {
             const IconComponent = ICON_MAP[category.icon] || Layers;
             return (
-              <article key={category.id} className={`${styles.card} glass-panel card-3d`}>
+              <TiltCard key={category.id} as="article" className={styles.card}>
                 <div className={styles.cardHeader}>
                   <div className={styles.iconBox}>
                     <IconComponent size={20} aria-hidden="true" />
@@ -43,7 +44,7 @@ export default function Skills() {
                     </li>
                   ))}
                 </ul>
-              </article>
+              </TiltCard>
             );
           })}
         </div>

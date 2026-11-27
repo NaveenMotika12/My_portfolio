@@ -1,9 +1,11 @@
+import { Code2, Server } from 'lucide-react';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
+import TiltCard from '../../components/TiltCard/TiltCard';
 import { profile } from '../../data/profile';
 import styles from './About.module.css';
 
 /**
- * About Me section with engineering background, highlights, and core strengths.
+ * About Me section with clear Frontend vs Backend engineering split and highlights.
  */
 export default function About() {
   return (
@@ -12,7 +14,7 @@ export default function About() {
         <SectionHeader
           eyebrow="01. About Me"
           title="Full Stack, Backend & AI Integration"
-          subtitle="Practical engineering across web applications, microservices, database optimization, and AI workflows."
+          subtitle="Clear visibility into how I build across the frontend, backend services, databases, and AI workflows."
         />
 
         <div className={styles.layout}>
@@ -23,24 +25,39 @@ export default function About() {
               </p>
             ))}
 
-            <div className={styles.strengthsWrap}>
-              <h3 className={styles.strengthsTitle}>Core Engineering Strengths</h3>
-              <ul className={styles.strengthsList}>
-                {profile.strengths.map((strength) => (
-                  <li key={strength} className={`${styles.strengthChip} glass-panel`}>
-                    {strength}
-                  </li>
-                ))}
-              </ul>
+            <div className={styles.splitGrid}>
+              <TiltCard className={styles.splitCard}>
+                <div className={styles.splitHead}>
+                  <Code2 size={18} className={styles.splitIcon} aria-hidden="true" />
+                  <h3 className={styles.splitTitle}>Frontend Engineering</h3>
+                </div>
+                <ul className={styles.splitList}>
+                  <li>React.js, React Native, JavaScript (ES6+), TypeScript</li>
+                  <li>Reusable Components, Hooks, Props, State &amp; Forms</li>
+                  <li>Responsive Dashboards, Real-time UI &amp; REST Integration</li>
+                </ul>
+              </TiltCard>
+
+              <TiltCard className={styles.splitCard}>
+                <div className={styles.splitHead}>
+                  <Server size={18} className={styles.splitIcon} aria-hidden="true" />
+                  <h3 className={styles.splitTitle}>Backend &amp; AI Systems</h3>
+                </div>
+                <ul className={styles.splitList}>
+                  <li>Node.js, Express.js, Python, FastAPI &amp; Microservices</li>
+                  <li>PostgreSQL, Redis Caching, JWT Auth &amp; API Gateways</li>
+                  <li>Gemini API, OpenAI API, RAG, pgvector &amp; Docker/Coolify</li>
+                </ul>
+              </TiltCard>
             </div>
           </div>
 
           <div className={styles.highlightsGrid}>
             {profile.highlights.map((item) => (
-              <div key={item.label} className={`${styles.highlightCard} glass-panel card-3d`}>
+              <TiltCard key={item.label} className={styles.highlightCard}>
                 <span className={styles.highlightLabel}>{item.label}</span>
                 <strong className={styles.highlightValue}>{item.value}</strong>
-              </div>
+              </TiltCard>
             ))}
           </div>
         </div>
