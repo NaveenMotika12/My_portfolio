@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ExternalLink, FolderGit2, Layers } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, FolderGit2, Layers } from 'lucide-react';
 import { GitHubIcon } from '../../components/Icons/SocialIcons';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
+import ProjectModal from '../../components/ProjectModal/ProjectModal';
 import { projects } from '../../data/projects';
 import styles from './Projects.module.css';
 
@@ -14,10 +15,11 @@ const CATEGORIES = [
 ];
 
 /**
- * Clean, scannable Projects showcase with category filters.
+ * Clean, scannable Projects showcase with category filters and deep Case Study modal.
  */
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const filteredProjects =
     activeCategory === 'All'
@@ -30,7 +32,7 @@ export default function Projects() {
         <SectionHeader
           eyebrow="04. Projects"
           title="Selected platforms & engineering work"
-          subtitle="Filter by domain to explore full-stack production apps, AI/backend services, and system architecture."
+          subtitle="Click any project's Technical Case Study to inspect its exact Frontend, Backend, Database, AI/API, and DevOps stack."
         />
 
         <div className={styles.filterBar} role="tablist" aria-label="Filter projects by category">
@@ -111,7 +113,7 @@ export default function Projects() {
 
               {project.features?.length > 0 && (
                 <ul className={styles.features}>
-                  {project.features.map((item, idx) => (
+                  {project.features.slice(0, 3).map((item, idx) => (
                     <li key={idx} className={styles.featureItem}>
                       {item}
                     </li>
@@ -127,16 +129,27 @@ export default function Projects() {
               )}
 
               <ul className={styles.techList}>
-                {project.techStack.map((tech) => (
+                {project.techStack.slice(0, 6).map((tech) => (
                   <li key={tech} className={styles.techTag}>
                     {tech}
                   </li>
                 ))}
               </ul>
+
+              <button
+                type="button"
+                onClick={() => setSelectedProject(project)}
+                className={styles.caseStudyBtn}
+              >
+                <span>View Technical Case Study</span>
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </button>
             </article>
           ))}
         </div>
       </div>
+
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   );
 }

@@ -194,3 +194,27 @@
     grid-template-columns: 1fr;
   }
 }
+
+.caseStudyBtn {
+  margin-top: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-border);
+  background-color: var(--accent-neon-soft);
+  color: var(--accent-neon);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.caseStudyBtn:hover {
+  background: var(--accent-gradient);
+  color: #050811;
+  border-color: transparent;
+}
