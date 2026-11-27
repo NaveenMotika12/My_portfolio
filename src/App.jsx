@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { siteConfig } from './config/siteConfig';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import CosmicCanvas from './components/CosmicCanvas/CosmicCanvas';
 import ResumeModal from './components/ResumeModal/ResumeModal';
 import Hero from './sections/Hero/Hero';
 import About from './sections/About/About';
@@ -47,7 +48,8 @@ export default function App() {
 
   return (
     <>
-      <div className="no-print">
+      <CosmicCanvas theme={theme} />
+      <div className="no-print" style={{ position: 'relative', zIndex: 1 }}>
         <div className="scroll-progress-track" aria-hidden="true">
           <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} />
         </div>

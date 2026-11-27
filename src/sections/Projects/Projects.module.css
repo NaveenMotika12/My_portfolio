@@ -219,3 +219,43 @@
   color: #050811;
   border-color: transparent;
 }
+
+.controlsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.controlsRow .filterBar {
+  margin-bottom: 0;
+}
+
+.viewSwitch {
+  display: inline-flex;
+  padding: 0.25rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  gap: 0.25rem;
+}
+
+.viewBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.viewActive {
+  background: var(--accent-gradient);
+  color: #050811;
+}

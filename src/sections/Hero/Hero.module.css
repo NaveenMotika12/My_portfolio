@@ -159,43 +159,124 @@
   gap: 1.15rem;
 }
 
-.portraitCard {
-  padding: 0.7rem;
-  border-radius: var(--radius-lg);
-}
-
-.portraitWrap {
+.cosmicStage {
   position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--accent-border);
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 900px;
+  margin-bottom: 0.25rem;
 }
 
-.portraitImg {
+.cosmicHalo {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 245, 212, 0.24) 0%, rgba(129, 140, 248, 0.14) 55%, transparent 72%);
+  filter: blur(12px);
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.orbFrame {
+  position: relative;
+  z-index: 4;
+  width: 158px;
+  height: 158px;
+  border-radius: 50%;
+  padding: 4px;
+  background: var(--accent-gradient);
+  box-shadow: 0 0 38px rgba(0, 245, 212, 0.38), 0 0 70px rgba(56, 189, 248, 0.2);
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.orbImg {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 18%;
+  filter: contrast(1.04) saturate(1.05);
 }
 
-.portraitTag {
+.orbitTilt {
   position: absolute;
-  bottom: 0.7rem;
-  left: 0.7rem;
+  border-radius: 50%;
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+  transform-style: preserve-3d;
+  z-index: 3;
+}
+
+.orbitOne {
+  width: 230px;
+  height: 230px;
+  animation: heroOrbitA 14s linear infinite;
+}
+
+.orbitTwo {
+  width: 268px;
+  height: 268px;
+  border-color: rgba(129, 140, 248, 0.35);
+  animation: heroOrbitB 18s linear infinite;
+}
+
+.satIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 8, 17, 0.9);
+  border: 1px solid var(--accent-border);
+  color: var(--accent-neon);
+  box-shadow: 0 0 14px rgba(0, 245, 212, 0.45);
+  transform: rotate(var(--pos)) translateX(115px) rotate(calc(-1 * var(--pos))) translate(-50%, -50%);
+}
+
+.orbitTwo .satIcon {
+  transform: rotate(var(--pos)) translateX(134px) rotate(calc(-1 * var(--pos))) translate(-50%, -50%);
+  color: var(--accent-secondary);
+}
+
+.orbBadge {
+  position: absolute;
+  bottom: 4px;
+  z-index: 6;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.35rem 0.8rem;
+  padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
-  background: rgba(5, 8, 17, 0.84);
+  background: rgba(5, 8, 17, 0.88);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  border: 1px solid var(--accent-border);
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: #f8fafc;
+}
+
+@keyframes heroOrbitA {
+  from {
+    transform: rotateX(64deg) rotateY(-16deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(64deg) rotateY(-16deg) rotateZ(360deg);
+  }
+}
+
+@keyframes heroOrbitB {
+  from {
+    transform: rotateX(66deg) rotateY(18deg) rotateZ(360deg);
+  }
+  to {
+    transform: rotateX(66deg) rotateY(18deg) rotateZ(0deg);
+  }
 }
 
 .streamCard {

@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { ArrowUpRight, ExternalLink, FolderGit2, Layers } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, FolderGit2, Layers, LayoutGrid, Orbit } from 'lucide-react';
 import { GitHubIcon } from '../../components/Icons/SocialIcons';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import TiltCard from '../../components/TiltCard/TiltCard';
+import UniverseExplorer from '../../components/UniverseExplorer/UniverseExplorer';
 import ProjectModal from '../../components/ProjectModal/ProjectModal';
 import { projects } from '../../data/projects';
 import styles from './Projects.module.css';
@@ -20,6 +21,7 @@ const CATEGORIES = [
  */
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [viewMode, setViewMode] = useState('universe'); // 'universe' | 'grid'
   const [selectedProject, setSelectedProject] = useState(null);
 
   const filteredProjects =
@@ -36,21 +38,47 @@ export default function Projects() {
           subtitle="Click any project's Technical Case Study to inspect its exact Frontend, Backend, Database, AI/API, and DevOps stack."
         />
 
-        <div className={styles.filterBar} role="tablist" aria-label="Filter projects by category">
-          {CATEGORIES.map((category) => (
+        <div className={styles.controlsRow}>
+          <div className={styles.viewSwitch} role="group" aria-label="Project view mode">
             <button
-              key={category}
               type="button"
-              role="tab"
-              aria-selected={activeCategory === category}
-              onClick={() => setActiveCategory(category)}
-              className={`${styles.filterBtn} ${activeCategory === category ? styles.filterActive : ''}`}
+              onClick={() => setViewMode('universe')}
+              className={`${styles.viewBtn} ${viewMode === 'universe' ? styles.viewActive : ''}`}
             >
-              {category}
+              <Orbit size={15} aria-hidden="true" />
+              <span>3D Universe</span>
             </button>
-          ))}
+            <button
+              type="button"
+              onClick={() => setViewMode('grid')}
+              className={`${styles.viewBtn} ${viewMode === 'grid' ? styles.viewActive : ''}`}
+            >
+              <LayoutGrid size={15} aria-hidden="true" />
+              <span>Card Grid</span>
+            </button>
+          </div>
+
+          {viewMode === 'grid' && (
+            <div className={styles.filterBar} role="tablist" aria-label="Filter projects by category">
+              {CATEGORIES.map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeCategory === category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`${styles.filterBtn} ${activeCategory === category ? styles.filterActive : ''}`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
+        {viewMode === 'universe' ? (
+          <UniverseExplorer projects={projects} onSelectProject={setSelectedProject} />
+        ) : (
         <div className={styles.grid}>
           {filteredProjects.map((project) => (
             <TiltCard key={project.id} as="article" className={styles.card}>
@@ -148,6 +176,7 @@ export default function Projects() {
             </TiltCard>
           ))}
         </div>
+        )}
       </div>
 
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />

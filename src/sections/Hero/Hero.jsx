@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Activity, ArrowRight, Download, MapPin } from 'lucide-react';
+import { Activity, ArrowRight, Code2, Cpu, Database, Download, MapPin, Server } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon } from '../../components/Icons/SocialIcons';
 import TiltCard from '../../components/TiltCard/TiltCard';
 import { profile } from '../../data/profile';
@@ -124,19 +124,36 @@ export default function Hero({ onOpenResume }) {
         </div>
 
         <aside className={`${styles.visualCol} animate-fade-in delay-2`}>
-          <TiltCard className={styles.portraitCard}>
-            <div className={styles.portraitWrap}>
+          <div className={styles.cosmicStage} aria-label="3D Cosmic Profile">
+            <div className={styles.cosmicHalo} aria-hidden="true" />
+            <div className={`${styles.orbitTilt} ${styles.orbitOne}`} aria-hidden="true">
+              <span className={styles.satIcon} style={{ '--pos': '0deg' }} title="Frontend">
+                <Code2 size={14} />
+              </span>
+              <span className={styles.satIcon} style={{ '--pos': '180deg' }} title="Backend">
+                <Server size={14} />
+              </span>
+            </div>
+            <div className={`${styles.orbitTilt} ${styles.orbitTwo}`} aria-hidden="true">
+              <span className={styles.satIcon} style={{ '--pos': '90deg' }} title="Databases">
+                <Database size={14} />
+              </span>
+              <span className={styles.satIcon} style={{ '--pos': '270deg' }} title="AI & RAG">
+                <Cpu size={14} />
+              </span>
+            </div>
+            <div className={styles.orbFrame}>
               <img
                 src={profile.profileImage}
                 alt={`${profile.name} portrait`}
-                className={styles.portraitImg}
+                className={styles.orbImg}
               />
-              <span className={styles.portraitTag}>
-                <span className={styles.statusDot} aria-hidden="true" />
-                Full Stack · Backend · AI
-              </span>
             </div>
-          </TiltCard>
+            <span className={styles.orbBadge}>
+              <span className={styles.statusDot} aria-hidden="true" />
+              Exploring Full Stack &amp; AI Universe
+            </span>
+          </div>
 
           <TiltCard className={styles.streamCard} aria-label="Live Full-Stack Architecture Stream">
             <div className={styles.streamHeader}>
