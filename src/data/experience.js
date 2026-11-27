@@ -1,5 +1,5 @@
 /**
- * Employment history aligned with resume records.
+ * Employment history aligned with verified company work.
  */
 export const experiences = [
   {
@@ -10,12 +10,12 @@ export const experiences = [
     period: 'Feb 2025 – Present',
     employmentType: 'Full-time',
     summary:
-      'Developing and maintaining full-stack astrology, AI tutoring, e-commerce, and calculation platforms across React.js, Node.js, Python, FastAPI, PostgreSQL, and Redis.',
+      'Developing and maintaining full-stack astrology, AI tutoring, consultation booking, and e-commerce platforms across React.js, Node.js, Python, FastAPI, PostgreSQL, and Redis.',
     responsibilities: [
-      'Built and maintained backend APIs, microservices, and frontend integrations for Grahavani.',
+      'Built and maintained backend APIs, microservices, and frontend integrations for Grahavani and Corporate Astro.',
       'Integrated Google Gemini API, RAG workflows, and pgvector semantic retrieval for AI tutoring features.',
-      'Handled production debugging, client feedback enhancements, notification workflows, and Razorpay/Shiprocket integrations.',
-      'Conducted technical exploration on Astro Engine (Flask/Swiss Ephemeris), Report Engine (FastAPI/Celery/WeasyPrint), and AstroVastu (Python/Shapely/NumPy).',
+      'Handled production debugging, client feedback enhancements, notification workflows, and Razorpay/Shiprocket integrations for Gowraj.',
+      'Maintained Astro Ratan FastAPI/AI workflows and contributed to Astro Engine and Report Engine architectures.',
     ],
     techStack: ['React.js', 'Node.js', 'Express.js', 'Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker'],
   },
@@ -27,12 +27,14 @@ export const experiences = [
     period: 'Mar 2024 – Jan 2025',
     employmentType: 'Full-time',
     summary:
-      'Worked on web-based management platforms including Learning Management System (LMS) and Booking & Coaching Management System.',
+      'Worked on the InstaRide ride-hailing platform across the TypeScript/Node.js backend (Socket.IO, Kafka, PostgreSQL/Sequelize) and the React Native (Expo) mobile application.',
     responsibilities: [
-      'Implemented frontend modules in React.js and integrated backend REST APIs built with Node.js and Express.js.',
-      'Worked on course management, booking workflows, user management, and SQL/database operations.',
+      'Developed REST APIs (Routes → Controllers → DAL → Sequelize) for users, drivers, trips, ratings, and OTP authentication.',
+      'Implemented real-time ride request and driver acceptance workflows using Socket.IO and Apache Kafka (KafkaJS).',
+      'Built and integrated screens in the InstaRide React Native (Expo) TypeScript app with React Navigation, Maps, Expo Location, and Axios.',
+      'Implemented separate JWT authentication middlewares for users and drivers, Express Validator rules, and Multer/Firebase Admin integrations.',
     ],
-    techStack: ['React.js', 'Node.js', 'Express.js', 'JavaScript', 'REST APIs', 'SQL'],
+    techStack: ['TypeScript', 'React Native', 'Expo', 'Node.js', 'Express.js', 'PostgreSQL', 'Sequelize', 'Socket.IO', 'Kafka'],
   },
   {
     id: 'exp-nareshit',
@@ -45,7 +47,7 @@ export const experiences = [
       'Completed structured full-stack Java training covering core programming and backend fundamentals.',
     responsibilities: [
       'Studied Core Java, JSP, Servlets, JDBC, SQL, and PL/SQL fundamentals.',
-      'Gained basic foundational exposure to Spring Boot, JPA, and Hibernate.',
+      'Gained foundational exposure to Spring Boot, JPA, and Hibernate through practice applications.',
     ],
     techStack: ['Java', 'JSP', 'Servlets', 'JDBC', 'Spring Boot (Basic)', 'SQL'],
   },

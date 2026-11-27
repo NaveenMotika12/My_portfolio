@@ -34,7 +34,7 @@ export const skillCategories = [
       'Microservices & API Gateway',
       'JWT Auth & Authorization',
       'Middleware & Error Handling',
-      'Socket.IO',
+      'Socket.IO & Apache Kafka (KafkaJS)',
     ],
   },
   {
@@ -43,7 +43,7 @@ export const skillCategories = [
     icon: 'Database',
     description: 'Relational storage, distributed caching, vector search, and LLM integrations.',
     skills: [
-      'PostgreSQL',
+      'PostgreSQL & Sequelize ORM',
       'SQL & Schema Design',
       'Redis & Semantic Caching',
       'pgvector & Vector Search',
