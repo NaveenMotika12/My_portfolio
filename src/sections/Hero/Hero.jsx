@@ -6,7 +6,7 @@ import { siteConfig } from '../../config/siteConfig';
 import styles from './Hero.module.css';
 
 /**
- * Hero section with live typing role indicator, profile avatar, and 3D glassmorphic terminal card.
+ * Hero section with live typing role, clean framed portrait card, and 3D glassmorphic terminal.
  */
 export default function Hero({ onOpenResume }) {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -106,17 +106,17 @@ export default function Hero({ onOpenResume }) {
         </div>
 
         <aside className={`${styles.visualCol} animate-fade-in delay-2`}>
-          <div className={styles.avatarRow}>
-            <div className={styles.avatarFrame}>
+          <div className={`${styles.portraitCard} glass-panel card-3d`}>
+            <div className={styles.portraitWrap}>
               <img
                 src={profile.profileImage}
-                alt={`${profile.name} profile`}
-                className={styles.avatarImg}
+                alt={`${profile.name} portrait`}
+                className={styles.portraitImg}
               />
-            </div>
-            <div className={`${styles.quickChip} glass-panel`}>
-              <span className={styles.quickLabel}>Focus</span>
-              <strong className={styles.quickValue}>Full Stack · Microservices · AI</strong>
+              <span className={styles.portraitTag}>
+                <span className={styles.statusDot} aria-hidden="true" />
+                Full Stack · Backend · AI
+              </span>
             </div>
           </div>
 
@@ -135,13 +135,10 @@ export default function Hero({ onOpenResume }) {
             <pre className={styles.codeBody}>
               <code>
 {`const engineer = {
-  name: "${profile.name}",
-  experience: "${profile.experienceYears}",
-  frontend: ["React.js", "React Native", "TS"],
-  backend: ["Node.js", "Express", "Python", "FastAPI"],
-  data: ["PostgreSQL", "Redis", "MongoDB", "pgvector"],
-  ai: ["Google Gemini API", "RAG", "OpenAI API"],
-  infra: ["Microservices", "Docker", "Coolify", "VPS"]
+  role: "Full Stack | Backend | AI",
+  stack: ["React", "Node.js", "Python", "FastAPI"],
+  data: ["PostgreSQL", "Redis", "pgvector"],
+  ai: ["Gemini API", "RAG", "OpenAI API"]
 };`}
               </code>
             </pre>
