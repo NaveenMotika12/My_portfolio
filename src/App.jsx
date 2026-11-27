@@ -7,22 +7,35 @@ import About from './sections/About/About';
 import Skills from './sections/Skills/Skills';
 import Experience from './sections/Experience/Experience';
 import Projects from './sections/Projects/Projects';
+import Architecture from './sections/Architecture/Architecture';
 import Education from './sections/Education/Education';
 import Contact from './sections/Contact/Contact';
 
 /**
- * Root application component managing theme state and portfolio sections.
+ * Root application component managing theme state, scroll progress, and sections.
  */
 export default function App() {
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem(siteConfig.themeStorageKey);
     return saved === 'light' || saved === 'dark' ? saved : siteConfig.defaultTheme;
   });
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem(siteConfig.themeStorageKey, theme);
   }, [theme]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? Math.min(100, Math.round((scrollTop / docHeight) * 100)) : 0;
+      setScrollProgress(progress);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
@@ -30,6 +43,9 @@ export default function App() {
 
   return (
     <>
+      <div className="scroll-progress-track" aria-hidden="true">
+        <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} />
+      </div>
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
       <main>
         <Hero />
@@ -37,6 +53,7 @@ export default function App() {
         <Skills />
         <Experience />
         <Projects />
+        <Architecture />
         <Education />
         <Contact />
       </main>

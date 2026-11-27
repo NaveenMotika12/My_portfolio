@@ -17,6 +17,33 @@
   line-height: 1.75;
 }
 
+.strengthsWrap {
+  margin-top: 0.5rem;
+}
+
+.strengthsTitle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-neon);
+  margin-bottom: 0.75rem;
+}
+
+.strengthsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.strengthChip {
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.42rem 0.85rem;
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+}
+
 .highlightsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -24,19 +51,11 @@
 }
 
 .highlightCard {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 1.2rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  transition: border-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.highlightCard:hover {
-  border-color: var(--accent-border);
-  transform: translateY(-2px);
 }
 
 .highlightLabel {

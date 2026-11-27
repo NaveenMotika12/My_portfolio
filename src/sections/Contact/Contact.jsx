@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, Copy, Download, Mail, MapPin, Send } from 'lucide-react';
+import { Check, Copy, Download, Mail, MapPin, Phone, Send } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon } from '../../components/Icons/SocialIcons';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { profile } from '../../data/profile';
@@ -37,7 +37,7 @@ export default function Contact() {
     <section id="contact">
       <div className="container">
         <SectionHeader
-          eyebrow="06. Contact"
+          eyebrow="07. Contact"
           title="Let's build something together"
           subtitle="Reach out for full-stack roles, freelance collaborations, or technical discussions."
         />
@@ -67,6 +67,16 @@ export default function Contact() {
                 >
                   {copied ? <Check size={16} /> : <Copy size={16} />}
                 </button>
+              </div>
+
+              <div className={styles.channelItem}>
+                <Phone size={18} className={styles.channelIcon} aria-hidden="true" />
+                <div className={styles.channelContent}>
+                  <span className={styles.channelLabel}>Phone</span>
+                  <a href={`tel:${profile.contact.phone.replace(/\s+/g, '')}`} className={styles.channelValue}>
+                    {profile.contact.phone}
+                  </a>
+                </div>
               </div>
 
               <div className={styles.channelItem}>

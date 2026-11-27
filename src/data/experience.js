@@ -1,45 +1,66 @@
 /**
- * Work experience timeline.
- * Replace the [PLACEHOLDER: ...] entries with your actual companies, dates,
- * responsibilities, and measurable achievements.
+ * Employment history aligned with resume records.
  */
 export const experiences = [
   {
-    id: 'exp-1',
+    id: 'exp-astrocorp',
     role: 'Full Stack Developer',
-    company: '[PLACEHOLDER: Current / Most Recent Company Name]',
-    location: '[PLACEHOLDER: City, Country / Remote]',
-    period: '[PLACEHOLDER: Month Year – Present]',
+    company: 'AstroCorp Techlab Private Limited',
+    location: 'Hyderabad, India',
+    period: 'Feb 2025 – Present',
     employmentType: 'Full-time',
     summary:
-      '[PLACEHOLDER: 1–2 sentence overview of your role and the product/platform you worked on.]',
+      'Developing and maintaining full-stack astrology, AI tutoring, e-commerce, and calculation platforms across React.js, Node.js, Python, FastAPI, PostgreSQL, and Redis.',
     responsibilities: [
-      '[PLACEHOLDER: Built and maintained frontend features using React.js / React Native and TypeScript.]',
-      '[PLACEHOLDER: Designed and implemented REST APIs and microservices using Node.js / Express.js or Python / FastAPI.]',
-      '[PLACEHOLDER: Integrated PostgreSQL and Redis caching to improve API response times and reliability.]',
+      'Built and maintained backend APIs, microservices, and frontend integrations for Grahavani.',
+      'Integrated Google Gemini API, RAG workflows, and pgvector semantic retrieval for AI tutoring features.',
+      'Handled production debugging, client feedback enhancements, notification workflows, and Razorpay/Shiprocket integrations.',
+      'Conducted technical exploration on Astro Engine (Flask/Swiss Ephemeris), Report Engine (FastAPI/Celery/WeasyPrint), and AstroVastu (Python/Shapely/NumPy).',
     ],
-    achievements: [
-      '[PLACEHOLDER: Key measurable achievement, e.g., reduced page load or API latency by X%.]',
-      '[PLACEHOLDER: Key delivery milestone, e.g., shipped authentication or third-party API integration.]',
-    ],
-    techStack: ['React.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'Docker'],
+    techStack: ['React.js', 'Node.js', 'Express.js', 'Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker'],
   },
   {
-    id: 'exp-2',
-    role: '[PLACEHOLDER: Previous Role Title]',
-    company: '[PLACEHOLDER: Previous Company Name]',
-    location: '[PLACEHOLDER: City, Country / Remote]',
-    period: '[PLACEHOLDER: Month Year – Month Year]',
+    id: 'exp-genamplify',
+    role: 'Software Developer',
+    company: 'GENAMPLIFY SOLUTIONS HUB',
+    location: 'Hyderabad, India',
+    period: 'Mar 2024 – Jan 2025',
     employmentType: 'Full-time',
     summary:
-      '[PLACEHOLDER: 1–2 sentence overview of your responsibilities in this role.]',
+      'Worked on web-based management platforms including Learning Management System (LMS) and Booking & Coaching Management System.',
     responsibilities: [
-      '[PLACEHOLDER: Developed reusable UI components and integrated backend REST APIs.]',
-      '[PLACEHOLDER: Collaborated with cross-functional teams using Git workflows and code reviews.]',
+      'Implemented frontend modules in React.js and integrated backend REST APIs built with Node.js and Express.js.',
+      'Worked on course management, booking workflows, user management, and SQL/database operations.',
     ],
-    achievements: [
-      '[PLACEHOLDER: Add a concrete achievement or project outcome from this role.]',
+    techStack: ['React.js', 'Node.js', 'Express.js', 'JavaScript', 'REST APIs', 'SQL'],
+  },
+  {
+    id: 'exp-nareshit',
+    role: 'Full Stack Java Trainee',
+    company: 'Naresh i Technologies',
+    location: 'Hyderabad, India',
+    period: 'Apr 2023 – Mar 2024',
+    employmentType: 'Training',
+    summary:
+      'Completed structured full-stack Java training covering core programming and backend fundamentals.',
+    responsibilities: [
+      'Studied Core Java, JSP, Servlets, JDBC, SQL, and PL/SQL fundamentals.',
+      'Gained basic foundational exposure to Spring Boot, JPA, and Hibernate.',
     ],
-    techStack: ['JavaScript', 'React.js', 'Express.js', 'Python', 'Git'],
+    techStack: ['Java', 'JSP', 'Servlets', 'JDBC', 'Spring Boot (Basic)', 'SQL'],
+  },
+  {
+    id: 'exp-amrutha',
+    role: 'Quality Control Assistant',
+    company: 'Amrutha Tool Crafts Pvt. Ltd.',
+    location: 'India',
+    period: 'Jul 2021 – Jan 2023',
+    employmentType: 'Full-time',
+    summary:
+      'Quality inspection and process verification prior to transitioning into software engineering.',
+    responsibilities: [
+      'Performed quality control checks and maintained inspection documentation.',
+    ],
+    techStack: ['Quality Assurance', 'Process Documentation'],
   },
 ];

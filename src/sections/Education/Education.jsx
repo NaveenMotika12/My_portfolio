@@ -11,7 +11,7 @@ export default function Education() {
     <section id="education" className="section-alt">
       <div className="container">
         <SectionHeader
-          eyebrow="05. Education"
+          eyebrow="06. Education"
           title="Academic background"
           subtitle="Formal qualifications and foundational computer science studies."
         />

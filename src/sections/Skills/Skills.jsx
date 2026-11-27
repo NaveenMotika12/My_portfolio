@@ -11,7 +11,7 @@ const ICON_MAP = {
 };
 
 /**
- * Technical Skills section rendered dynamically from src/data/skills.js.
+ * Technical Skills section with transparent exposure levels.
  */
 export default function Skills() {
   return (
@@ -19,15 +19,15 @@ export default function Skills() {
       <div className="container">
         <SectionHeader
           eyebrow="02. Technical Skills"
-          title="Technologies & core competencies"
-          subtitle="Tools, frameworks, and architectural patterns I use to build production applications."
+          title="Technologies & exposure levels"
+          subtitle="Clearly distinguishing hands-on production skills, API integrations, exploration, and foundational training."
         />
 
         <div className={styles.grid}>
           {skillCategories.map((category) => {
             const IconComponent = ICON_MAP[category.icon] || Layers;
             return (
-              <article key={category.id} className={styles.card}>
+              <article key={category.id} className={`${styles.card} glass-panel card-3d`}>
                 <div className={styles.cardHeader}>
                   <div className={styles.iconBox}>
                     <IconComponent size={20} aria-hidden="true" />
@@ -37,8 +37,9 @@ export default function Skills() {
                 <p className={styles.cardDesc}>{category.description}</p>
                 <ul className={styles.skillList}>
                   {category.skills.map((skill) => (
-                    <li key={skill} className={styles.skillBadge}>
-                      {skill}
+                    <li key={skill.name} className={styles.skillBadge}>
+                      <span className={styles.skillName}>{skill.name}</span>
+                      <span className={styles.skillLevel}>{skill.level}</span>
                     </li>
                   ))}
                 </ul>

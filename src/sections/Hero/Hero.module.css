@@ -1,27 +1,32 @@
 .hero {
-  padding: 5.5rem 0 5rem;
+  padding: 4.5rem 0 4.5rem;
   position: relative;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.12fr 0.88fr;
   align-items: center;
-  gap: 3rem;
+  gap: 2.75rem;
 }
 
-.statusBadge {
+.topBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.35rem;
+}
+
+.statusBadge,
+.locationBadge {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.4rem 0.9rem;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
   border-radius: var(--radius-full);
-  border: 1px solid var(--border-subtle);
-  background-color: var(--bg-card);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 500;
   color: var(--text-secondary);
-  margin-bottom: 1.35rem;
 }
 
 .statusDot {
@@ -29,40 +34,63 @@
   height: 8px;
   border-radius: 50%;
   background-color: var(--status-success);
+  box-shadow: 0 0 10px var(--accent-neon);
   animation: pulseDot 2s ease-in-out infinite;
 }
 
 .title {
-  font-size: clamp(2.25rem, 4.8vw, 3.5rem);
+  font-size: clamp(2.25rem, 4.6vw, 3.45rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.12;
   color: var(--text-primary);
 }
 
-.roleLine {
-  margin-top: 0.85rem;
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
+.typingLine {
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: clamp(0.98rem, 1.8vw, 1.2rem);
   font-weight: 600;
-  color: var(--text-secondary);
+  min-height: 2rem;
+}
+
+.prompt {
+  color: var(--accent-neon);
+}
+
+.typedText {
+  color: var(--text-primary);
+}
+
+.cursor {
+  color: var(--accent-neon);
+  animation: blinkCursor 0.9s steps(2, start) infinite;
 }
 
 .expTag {
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  color: var(--accent-primary);
+  margin-left: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background-color: var(--accent-neon-soft);
+  border: 1px solid var(--accent-border);
+  font-size: 0.78rem;
+  color: var(--accent-neon);
 }
 
 .bio {
-  margin-top: 1.25rem;
-  max-width: 580px;
-  font-size: 1.0625rem;
+  margin-top: 1.2rem;
+  max-width: 590px;
+  font-size: 1.04rem;
   color: var(--text-secondary);
   line-height: 1.7;
 }
 
 .ctaRow {
-  margin-top: 2rem;
+  margin-top: 1.9rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
@@ -72,11 +100,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.82rem 1.45rem;
+  padding: 0.85rem 1.5rem;
   border-radius: var(--radius-sm);
   background: var(--accent-gradient);
-  color: #ffffff;
-  font-weight: 600;
+  color: #050811;
+  font-weight: 700;
   font-size: 0.95rem;
   box-shadow: var(--shadow-glow);
   transition: transform var(--transition-fast), opacity var(--transition-fast);
@@ -91,30 +119,24 @@
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.82rem 1.45rem;
+  padding: 0.85rem 1.45rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-strong);
-  background-color: var(--bg-card);
   color: var(--text-primary);
   font-weight: 600;
   font-size: 0.95rem;
-  transition:
-    border-color var(--transition-fast),
-    background-color var(--transition-fast),
-    transform var(--transition-fast);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .secondaryBtn:hover {
   border-color: var(--accent-border);
-  background-color: var(--bg-card-hover);
   transform: translateY(-2px);
 }
 
 .socials {
-  margin-top: 1.75rem;
+  margin-top: 1.65rem;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.35rem;
 }
 
 .socialLink {
@@ -128,14 +150,64 @@
 }
 
 .socialLink:hover {
-  color: var(--accent-primary);
+  color: var(--accent-neon);
+}
+
+.visualCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.avatarRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatarFrame {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  padding: 3px;
+  background: var(--accent-gradient);
+  box-shadow: var(--shadow-glow);
+  flex-shrink: 0;
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--bg-secondary);
+}
+
+.quickChip {
+  flex: 1;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.quickLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-neon);
+}
+
+.quickValue {
+  font-size: 0.92rem;
+  color: var(--text-primary);
 }
 
 .codeCard {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
   overflow: hidden;
 }
 
@@ -145,12 +217,12 @@
   justify-content: space-between;
   padding: 0.8rem 1.1rem;
   border-bottom: 1px solid var(--border-subtle);
-  background-color: var(--bg-secondary);
+  background-color: rgba(0, 0, 0, 0.22);
 }
 
 .dots {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.42rem;
 }
 
 .dots span {
@@ -158,6 +230,18 @@
   height: 10px;
   border-radius: 50%;
   background-color: var(--border-strong);
+}
+
+.dots span:first-child {
+  background-color: #ef4444;
+}
+
+.dots span:nth-child(2) {
+  background-color: #f59e0b;
+}
+
+.dots span:nth-child(3) {
+  background-color: #10b981;
 }
 
 .fileName {
@@ -170,9 +254,9 @@
 }
 
 .codeBody {
-  padding: 1.35rem;
+  padding: 1.25rem;
   font-family: var(--font-mono);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   line-height: 1.7;
   color: var(--text-primary);
   overflow-x: auto;
@@ -187,6 +271,6 @@
 
 @media (max-width: 640px) {
   .hero {
-    padding: 3.75rem 0 3.5rem;
+    padding: 3.25rem 0 3.25rem;
   }
 }

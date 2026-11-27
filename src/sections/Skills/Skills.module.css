@@ -5,23 +5,11 @@
 }
 
 .card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 1.65rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition:
-    border-color var(--transition-fast),
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
-}
-
-.card:hover {
-  border-color: var(--accent-border);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
 }
 
 .cardHeader {
@@ -38,7 +26,7 @@
   height: 42px;
   border-radius: var(--radius-sm);
   background-color: var(--accent-soft);
-  color: var(--accent-primary);
+  color: var(--accent-neon);
   flex-shrink: 0;
 }
 
@@ -63,19 +51,32 @@
 }
 
 .skillBadge {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  padding: 0.35rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.72rem;
   border-radius: var(--radius-full);
-  background-color: var(--bg-secondary);
+  background-color: rgba(0, 0, 0, 0.2);
   border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
-  transition: border-color var(--transition-fast), color var(--transition-fast);
 }
 
-.card:hover .skillBadge {
-  border-color: var(--border-strong);
+[data-theme='light'] .skillBadge {
+  background-color: rgba(241, 245, 249, 0.85);
+}
+
+.skillName {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.skillLevel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  padding-left: 0.4rem;
+  border-left: 1px solid var(--border-subtle);
 }
 
 @media (max-width: 768px) {

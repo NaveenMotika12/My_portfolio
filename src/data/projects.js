@@ -1,52 +1,200 @@
 /**
- * Portfolio projects.
- * Replace [PLACEHOLDER: ...] entries with your real-world projects.
- * You can add new objects to this array at any time.
+ * Distinct, accurate project catalog.
+ * Clearly separates hands-on implementation, integration, production support, and exploration.
  */
 export const projects = [
   {
-    id: 'project-1',
-    title: '[PLACEHOLDER: Project Name 1]',
-    category: 'Full Stack Web App',
-    featured: true,
+    id: 'grahavani',
+    title: 'Grahavani – AI-Powered Vedic Astrology Platform',
+    category: 'Production & Full Stack',
+    scopeBadge: 'Hands-on Implementation · AI Integration · Support',
+    timeline: 'AstroCorp Techlab',
     description:
-      '[PLACEHOLDER: Brief description of the problem this project solves and what you built.]',
-    highlights: [
-      '[PLACEHOLDER: Architecture highlight, e.g., JWT authentication and role-based access control.]',
-      '[PLACEHOLDER: Performance highlight, e.g., Redis caching for high-traffic endpoints.]',
+      'An AI-powered Vedic Astrology platform for astrologers, clients, and learners featuring booking, astrology services, an AI-powered LMS, and Acharya Gautam AI Tutor.',
+    role: 'Full Stack Developer – Backend, Frontend, API Integration & Production Support',
+    features: [
+      'Astrologer management, branding, and client management',
+      'Normal & Tatkal (urgent) appointment booking with dynamic time-slot management',
+      'Astrology services: Match Making, Numerology, Muhurtham, Panchang, multiple Ayanamsa options',
+      'AI-Powered LMS (Tier → Module → Chapter → Lesson, MCQs, gamification, spaced repetition)',
+      'Acharya Gautam AI Tutor: Gemini API, RAG, pgvector semantic retrieval, semantic caching, TTS, Socratic guardrails',
+      'Admin panel for dynamic masters, configuration, and content management',
     ],
-    techStack: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'Redis'],
-    githubUrl: 'https://github.com/[PLACEHOLDER-USERNAME]/[PLACEHOLDER-REPO-1]',
-    liveUrl: '', // [PLACEHOLDER: Add live demo URL if available, or leave empty]
-  },
-  {
-    id: 'project-2',
-    title: '[PLACEHOLDER: Project Name 2]',
-    category: 'Backend / Microservices',
-    featured: true,
-    description:
-      '[PLACEHOLDER: Brief description of your backend/API or microservices project.]',
-    highlights: [
-      '[PLACEHOLDER: Designed modular REST APIs with FastAPI and containerized with Docker.]',
-      '[PLACEHOLDER: Integrated external third-party APIs with retry and error handling.]',
-    ],
-    techStack: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'REST APIs'],
-    githubUrl: 'https://github.com/[PLACEHOLDER-USERNAME]/[PLACEHOLDER-REPO-2]',
+    architectureNote:
+      'Microservices via API Gateway (8080): Auth (3001), User (3002), Client (3008), Learning (3013), Astro Proxy (3014) + Socket.IO. Note: PDF Report Engine is a separate effort.',
+    techStack: ['React.js', 'TypeScript', 'Node.js', 'Express.js', 'PostgreSQL', 'Redis', 'Gemini API', 'pgvector', 'Docker'],
+    githubUrl: 'https://github.com/NaveenMotika12',
     liveUrl: '',
   },
   {
-    id: 'project-3',
-    title: '[PLACEHOLDER: Project Name 3]',
-    category: 'Mobile / Cross-Platform',
-    featured: false,
+    id: 'gowraj',
+    title: 'Gowraj Desi Ghee – E-commerce Website',
+    category: 'Production & Full Stack',
+    scopeBadge: 'Integration · Production Support',
+    timeline: 'AstroCorp Techlab',
     description:
-      '[PLACEHOLDER: Brief description of your React Native or frontend-focused project.]',
-    highlights: [
-      '[PLACEHOLDER: Built responsive screens and smooth navigation flows in React Native.]',
-      '[PLACEHOLDER: Connected mobile client to authenticated REST endpoints.]',
+      'E-commerce platform for Desi Ghee products supporting customer ordering, Razorpay payments, Shiprocket logistics, COD workflows, and admin order handling.',
+    role: 'Full Stack Developer / Production Support Developer',
+    features: [
+      'Active Razorpay payment gateway integration (PhonePe exists only as optional/future backup)',
+      'Shiprocket shipping integration, pickup scheduling, and return/reverse-pickup workflows',
+      'Admin Order Details, order status management, and COD order handling',
+      'Backend API debugging, frontend-backend integration, and production issue resolution',
     ],
-    techStack: ['React Native', 'TypeScript', 'API Integration', 'Authentication'],
-    githubUrl: 'https://github.com/[PLACEHOLDER-USERNAME]/[PLACEHOLDER-REPO-3]',
+    architectureNote: 'Deployed via Coolify with Node.js/Express.js backend and React.js storefront.',
+    techStack: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'Razorpay', 'Shiprocket', 'Coolify'],
+    githubUrl: 'https://github.com/NaveenMotika12',
+    liveUrl: '',
+  },
+  {
+    id: 'astro-ratan',
+    title: 'Astro Ratan – AI Astrology Application',
+    category: 'AI & Backend',
+    scopeBadge: 'AI Integration · Production Support',
+    timeline: 'Separate Project',
+    description:
+      'Standalone AI-powered astrology application delivering AI-generated interpretations and user interactions (maintained separately from Grahavani).',
+    role: 'Backend & AI Integration / Production Support',
+    features: [
+      'FastAPI backend service handling astrology user interactions',
+      'Integrated OpenAI GPT-4o mini and Google Gemini 2.5 Flash-Lite models',
+      'AI response troubleshooting, production debugging, maintenance, and notifications',
+    ],
+    architectureNote: 'Independent FastAPI backend with dual-LLM integration (OpenAI + Gemini).',
+    techStack: ['Python', 'FastAPI', 'OpenAI API', 'Google Gemini API', 'REST APIs'],
+    githubUrl: 'https://github.com/NaveenMotika12',
+    liveUrl: '',
+  },
+  {
+    id: 'astrocorp-web',
+    title: 'AstroCorp Corporate Website',
+    category: 'Production & Full Stack',
+    scopeBadge: 'Frontend & Integration',
+    timeline: 'Mar 2025 – Jan 2026 (Draft)',
+    description:
+      'Corporate web presence for AstroCorp Techlab Private Limited showcasing company offerings and responsive pages.',
+    role: 'Full Stack Developer / Website Developer',
+    features: [
+      'Responsive corporate website layout and frontend implementation',
+      'Backend/API integration where applicable',
+      'Ongoing website maintenance and bug fixing',
+    ],
+    architectureNote: 'React.js frontend with Node.js/REST integration where applicable.',
+    techStack: ['React.js', 'JavaScript', 'Node.js', 'REST APIs', 'Git'],
+    githubUrl: 'https://github.com/NaveenMotika12',
+    liveUrl: '',
+  },
+  {
+    id: 'astro-engine',
+    title: 'Astro Engine – Vedic Calculation Engine',
+    category: 'AI & Backend',
+    scopeBadge: 'Exploration · API Integration · Understanding',
+    timeline: 'AstroCorp Techlab',
+    description:
+      'Astrology calculation engine computing planetary positions, divisional charts, dashas, and Vedic parameters.',
+    role: 'Technical Exploration, Architecture Understanding & API Integration',
+    features: [
+      'Flask-based Python backend utilizing Swiss Ephemeris astronomical calculations',
+      'Lahiri Ayanamsa, Whole Sign house system, and D1–D60 divisional charts',
+      'Dasha calculations, KP astrology, Varshaphala, Sarvatobhadra Chakra, Yogas & Doshas',
+    ],
+    architectureNote: 'Python/Flask calculation service; work spans architecture understanding, API integration, and testing.',
+    techStack: ['Python', 'Flask', 'Swiss Ephemeris', 'REST APIs'],
+    githubUrl: 'https://github.com/NaveenMotika12',
+    liveUrl: '',
+  },
+  {
+    id: 'report-engine',
+    title: 'Report Engine – PDF Report Generation',
+    category: 'Architecture & Exploration',
+    scopeBadge: 'Architecture & Integration Planning',
+    timeline: 'Exploration',
+    description:
+      'Reusable report-generation architecture designed to produce branded, client-specific astrology PDF reports asynchronously.',
+    role: 'Architecture Exploration & Integration Planning (Not claimed as completed production)',
+    features: [
+      'Asynchronous pipeline: Node.js service → Redis queue → FastAPI + Celery workers',
+      'Jinja2 HTML templates rendered via WeasyPrint with SVG/PNG charts',
+      'PostgreSQL metadata tracking and secure object storage download URLs',
+    ],
+    architectureNote: 'Planned multi-worker pipeline for simple, premium, and astrologer-branded PDF reports.',
+    techStack: ['Node.js', 'Redis', 'Python', 'FastAPI', 'Celery', 'Jinja2', 'WeasyPrint', 'PostgreSQL'],
+    githubUrl: 'https://github.com/NaveenMotika12',
+    liveUrl: '',
+  },
+  {
+    id: 'lms',
+    title: 'Learning Management System (LMS)',
+    category: 'Production & Full Stack',
+    scopeBadge: 'Full Stack Implementation',
+    timeline: 'Nov 2024 – Feb 2025 (Draft)',
+    description:
+      'Web-based Learning Management System for managing courses, educational content, and user learning activities.',
+    role: 'Software Developer – Frontend & Backend Integration',
+    features: [
+      'Course management and structured learning content management',
+      'User management and REST API development',
+      'Frontend-to-backend integration and database persistence',
+    ],
+    architectureNote: 'React.js client connected to Node.js/Express.js REST APIs.',
+    techStack: ['React.js', 'Node.js', 'Express.js', 'REST APIs', 'SQL'],
+    githubUrl: 'https://github.com/NaveenMotika12',
+    liveUrl: '',
+  },
+  {
+    id: 'booking-coaching',
+    title: 'Booking & Coaching Management System',
+    category: 'Production & Full Stack',
+    scopeBadge: 'Full Stack Implementation',
+    timeline: 'May 2024 – Oct 2024 (Draft)',
+    description:
+      'Management platform built for scheduling bookings and coordinating coaching-related workflows.',
+    role: 'Software Developer',
+    features: [
+      'Booking management and user management flows',
+      'Coaching-related workflow endpoints and API integration',
+      'Responsive React.js UI and SQL database operations',
+    ],
+    architectureNote: 'React.js frontend with Express.js backend and relational database.',
+    techStack: ['React.js', 'Node.js', 'Express.js', 'JavaScript', 'SQL'],
+    githubUrl: 'https://github.com/NaveenMotika12',
+    liveUrl: '',
+  },
+  {
+    id: 'car-garage',
+    title: 'Car Garage Management Application',
+    category: 'Personal',
+    scopeBadge: 'Personal Project · In Progress',
+    timeline: 'In Progress',
+    description:
+      'Personal full-stack application for managing car garage operations, structured with separate Frontend and Backend folders in a single repository.',
+    role: 'Personal Project Developer',
+    features: [
+      'Separate Frontend and Backend architecture in a monorepo',
+      'PostgreSQL with pgAdmin for production and SQLite for local development',
+      'DigitalOcean hosting setup (features currently under active development)',
+    ],
+    architectureNote: 'Monorepo setup targeting DigitalOcean deployment.',
+    techStack: ['React.js', 'Node.js', 'PostgreSQL', 'SQLite', 'pgAdmin', 'DigitalOcean'],
+    githubUrl: 'https://github.com/NaveenMotika12',
+    liveUrl: '',
+  },
+  {
+    id: 'employee-mgmt',
+    title: 'Employee Management System',
+    category: 'Personal',
+    scopeBadge: 'Early Learning Project',
+    timeline: 'Dec 2022 – Jan 2023 (Draft)',
+    description:
+      'Foundational employee records application built during early software development learning.',
+    role: 'Developer (Early Learning)',
+    features: [
+      'Employee information management and CRUD operations',
+      'Database connectivity and basic backend functionality',
+    ],
+    architectureNote: 'Early learning CRUD application.',
+    techStack: ['CRUD', 'Database Connectivity', 'Backend Fundamentals'],
+    githubUrl: 'https://github.com/NaveenMotika12',
     liveUrl: '',
   },
 ];

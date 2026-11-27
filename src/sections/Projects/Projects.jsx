@@ -1,29 +1,61 @@
-import { ExternalLink, FolderGit2 } from 'lucide-react';
+import { useState } from 'react';
+import { ExternalLink, FolderGit2, Layers } from 'lucide-react';
 import { GitHubIcon } from '../../components/Icons/SocialIcons';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { projects } from '../../data/projects';
 import styles from './Projects.module.css';
 
+const CATEGORIES = [
+  'All',
+  'Production & Full Stack',
+  'AI & Backend',
+  'Architecture & Exploration',
+  'Personal',
+];
+
 /**
- * Projects showcase rendered from src/data/projects.js.
+ * Filterable Projects showcase with clear distinction between production, integration, and exploration.
  */
 export default function Projects() {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredProjects =
+    activeCategory === 'All'
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
+
   return (
     <section id="projects">
       <div className="container">
         <SectionHeader
           eyebrow="04. Projects"
-          title="Selected work & real-world builds"
-          subtitle="Full stack web applications, backend services, and mobile experiences. Easily extensible via src/data/projects.js."
+          title="Real-world platforms & technical builds"
+          subtitle="Each project clearly separates hands-on implementation, API integration, production support, and architecture exploration."
         />
 
+        <div className={styles.filterBar} role="tablist" aria-label="Filter projects by category">
+          {CATEGORIES.map((category) => (
+            <button
+              key={category}
+              type="button"
+              role="tab"
+              aria-selected={activeCategory === category}
+              onClick={() => setActiveCategory(category)}
+              className={`${styles.filterBtn} ${activeCategory === category ? styles.filterActive : ''}`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className={styles.grid}>
-          {projects.map((project) => (
-            <article key={project.id} className={styles.card}>
+          {filteredProjects.map((project) => (
+            <article key={project.id} className={`${styles.card} glass-panel card-3d`}>
               <div className={styles.cardTop}>
                 <div className={styles.folderIcon}>
-                  <FolderGit2 size={22} aria-hidden="true" />
+                  <FolderGit2 size={21} aria-hidden="true" />
                 </div>
+                <span className={styles.scopeBadge}>{project.scopeBadge}</span>
                 <div className={styles.links}>
                   {project.githubUrl && (
                     <a
@@ -32,9 +64,9 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className={styles.iconLink}
                       aria-label={`${project.title} GitHub repository`}
-                      title="View Source on GitHub"
+                      title="GitHub"
                     >
-                      <GitHubIcon size={18} />
+                      <GitHubIcon size={17} />
                     </a>
                   )}
                   {project.liveUrl && (
@@ -44,26 +76,38 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className={styles.iconLink}
                       aria-label={`${project.title} live demo`}
-                      title="Open Live Demo"
+                      title="Live Demo"
                     >
-                      <ExternalLink size={18} />
+                      <ExternalLink size={17} />
                     </a>
                   )}
                 </div>
               </div>
 
-              <span className={styles.category}>{project.category}</span>
+              <div className={styles.metaLine}>
+                <span className={styles.category}>{project.category}</span>
+                <span className={styles.timeline}>{project.timeline}</span>
+              </div>
+
               <h3 className={styles.title}>{project.title}</h3>
+              <p className={styles.role}>{project.role}</p>
               <p className={styles.description}>{project.description}</p>
 
-              {project.highlights?.length > 0 && (
-                <ul className={styles.highlights}>
-                  {project.highlights.map((item, idx) => (
-                    <li key={idx} className={styles.highlightItem}>
+              {project.features?.length > 0 && (
+                <ul className={styles.features}>
+                  {project.features.map((item, idx) => (
+                    <li key={idx} className={styles.featureItem}>
                       {item}
                     </li>
                   ))}
                 </ul>
+              )}
+
+              {project.architectureNote && (
+                <div className={styles.archBox}>
+                  <Layers size={14} aria-hidden="true" className={styles.archIcon} />
+                  <span>{project.architectureNote}</span>
+                </div>
               )}
 
               <ul className={styles.techList}>
