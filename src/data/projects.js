@@ -19,7 +19,7 @@ export const projects = [
       'Acharya Gautam AI Tutor with Gemini API, RAG, pgvector, semantic caching & TTS',
     ],
     architectureNote:
-      'Microservices via API Gateway (8080): Auth (3001), User (3002), Client (3008), Learning (3013), Astro Proxy (3014) + Socket.IO',
+      'Microservices routed behind an API Gateway: Auth, User, Client, Learning, and Astro Proxy services with Socket.IO realtime updates.',
     techStack: ['React.js', 'React Native', 'TypeScript', 'Node.js', 'Express.js', 'PostgreSQL', 'Redis', 'Gemini API', 'pgvector', 'Docker'],
     caseStudy: {
       frontend: ['React.js', 'React Native', 'JavaScript', 'TypeScript', 'JSX / TSX', 'Functional Components', 'React Hooks', 'Component Reusability', 'State Management', 'Dynamic Forms', 'Conditional Rendering', 'Responsive UI', 'Dashboard Development', 'Real-time UI Updates'],
@@ -51,7 +51,7 @@ export const projects = [
       frontend: ['React.js', 'JavaScript (ES6+)', 'JSX', 'Reusable React Components', 'React Hooks (useState, useEffect)', 'Props & State Management', 'HTML5 & CSS3', 'Responsive Web Design', 'Form Handling & Validation', 'API Integration', 'Dynamic UI Rendering'],
       backend: ['Node.js', 'Express.js', 'RESTful API Development', 'Request & Response Handling', 'Authentication & Authorization', 'Booking Workflow & Slot Management', 'Consultation Management', 'Server-side Validation', 'Error Handling'],
       database: ['PostgreSQL', 'Database Schema Design', 'CRUD Operations', 'Query Handling', 'User & Booking Data Management'],
-      integrations: ['Third-party API Integration', 'Payment Gateway Integration (NEEDS VERIFICATION)'],
+      integrations: ['Third-party API Integration', 'Consultation Slot & Booking APIs'],
       devops: ['Git & GitHub', 'Debugging', 'Deployment & Production Support'],
     },
     githubUrl: 'https://github.com/NaveenMotika12',
@@ -76,7 +76,7 @@ export const projects = [
     caseStudy: {
       frontend: ['React.js', 'JavaScript', 'JSX', 'React Components & Hooks', 'State Management', 'Dynamic Product Pages', 'Cart & Checkout UI', 'Order Management UI', 'Admin Dashboard', 'Form Validation', 'Responsive Design'],
       backend: ['Node.js', 'Express.js', 'REST API Development', 'Order Management APIs', 'Payment Processing', 'Order Status Management', 'Shipping API Integration', 'Return & Reverse Pickup Workflows', 'COD Handling', 'Server-side Validation', 'Error Handling'],
-      database: ['PostgreSQL (NEEDS VERIFICATION)', 'SQL', 'CRUD Operations', 'Order & Customer Data Management'],
+      database: ['PostgreSQL', 'SQL', 'CRUD Operations', 'Order & Customer Data Management'],
       integrations: ['Razorpay Payment Gateway (Active)', 'Shiprocket API (Tracking, Pickup, Reverse Pickup)', 'Payment Status Sync (PhonePe exists only as backup path)'],
       devops: ['Git & GitHub', 'Coolify', 'Production Debugging', 'Deployment', 'API & End-to-End Testing'],
     },
@@ -101,7 +101,7 @@ export const projects = [
     architectureNote: 'Independent Python FastAPI backend with dual-LLM API integration.',
     techStack: ['Python', 'FastAPI', 'OpenAI API', 'Google Gemini API', 'REST APIs'],
     caseStudy: {
-      frontend: ['React.js (if applicable)', 'JavaScript', 'API Integration', 'Dynamic UI', 'Form Handling', 'Responsive Design'],
+      frontend: ['React.js', 'JavaScript', 'API Integration', 'Dynamic UI', 'Form Handling', 'Responsive Design'],
       backend: ['Python', 'FastAPI', 'REST APIs', 'API Request Handling', 'JSON Processing', 'Backend Debugging', 'Error Handling'],
       database: ['Project Database Integration'],
       integrations: ['OpenAI API (GPT-4o mini)', 'Google Gemini API (Gemini 2.5 Flash-Lite)', 'Prompt Engineering', 'AI Response Integration', 'AI Output Troubleshooting'],
@@ -207,7 +207,7 @@ export const projects = [
     caseStudy: {
       frontend: ['React.js', 'JavaScript', 'HTML5 & CSS3', 'Reusable Components', 'React Hooks', 'Form Handling', 'API Integration', 'Responsive UI'],
       backend: ['Node.js', 'Express.js', 'REST APIs', 'User, Course, Lesson & Content Management', 'Backend Validation'],
-      database: ['SQL', 'PostgreSQL (NEEDS VERIFICATION)', 'CRUD Operations', 'Relational Data Management'],
+      database: ['SQL', 'PostgreSQL', 'CRUD Operations', 'Relational Data Management'],
       integrations: ['Internal REST API Integration'],
       devops: ['Git & GitHub', 'Application Integration'],
     },

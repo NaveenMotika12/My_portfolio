@@ -1,43 +1,43 @@
 /**
- * Dedicated data for System Architecture, AI/RAG, and Current Research (AstroVastu).
+ * System Architecture, Implemented AI/RAG Workflows, and Active R&D (AstroVastu).
  */
 export const grahavaniServices = [
-  { name: 'API Gateway', port: '8080', role: 'Central request routing & entry point' },
-  { name: 'Authentication', port: '3001', role: 'JWT issuance & access verification' },
-  { name: 'User Service', port: '3002', role: 'Profiles, roles & account data' },
-  { name: 'Client Service', port: '3008', role: 'Client records & astrologer workspace' },
-  { name: 'Learning Service', port: '3013', role: 'LMS tiers, modules, MCQs & mastery' },
-  { name: 'Astro Proxy', port: '3014', role: 'Calculation & astrology service proxy' },
+  { name: 'API Gateway', layer: 'Edge', role: 'Centralized request routing, rate limiting & CORS' },
+  { name: 'Auth Service', layer: 'Security', role: 'JWT token issuance & role-based access control' },
+  { name: 'User Service', layer: 'Core', role: 'Account profiles, preferences & astrologer data' },
+  { name: 'Client Service', layer: 'Domain', role: 'Client records, consultations & workspace data' },
+  { name: 'Learning Service', layer: 'LMS', role: 'Tiers, modules, MCQs, gamification & mastery' },
+  { name: 'Astro Proxy', layer: 'Compute', role: 'Bridge to astronomical & Vedic calculation engine' },
 ];
 
 export const aiIntegrationHighlights = [
   {
-    title: 'Acharya Gautam AI Tutor (Grahavani)',
+    title: 'Acharya Gautam AI Tutor (Implemented in Grahavani)',
     points: [
-      'Google Gemini API integration with Socratic learning guardrails',
-      'Retrieval-Augmented Generation (RAG) powered by PostgreSQL + pgvector',
-      'Semantic caching, suggested questions, and Text-to-Speech (TTS) workflows',
+      'Production Google Gemini API integration with Socratic learning guardrails',
+      'End-to-end RAG pipeline backed by PostgreSQL + pgvector semantic retrieval',
+      'Redis semantic caching, suggested follow-ups, and Text-to-Speech (TTS) audio',
     ],
   },
   {
     title: 'Dual-LLM Backend (Astro Ratan)',
     points: [
-      'Python FastAPI backend integrating OpenAI GPT-4o mini & Gemini 2.5 Flash-Lite',
-      'AI response troubleshooting, prompt/API debugging, and production maintenance',
+      'Python FastAPI service integrating OpenAI GPT-4o mini and Gemini 2.5 Flash-Lite',
+      'Prompt orchestration, response troubleshooting, and production API maintenance',
     ],
   },
 ];
 
 export const astroVastuResearch = {
-  title: 'Current Research & Exploration – AstroVastu',
-  status: 'Research / Exploration (Not a completed production project)',
+  title: 'Active R&D – AstroVastu Spatial Analysis',
+  status: 'Active Research & Architecture',
   statement:
-    'Currently exploring and researching Python-based geometric and spatial analysis techniques for an AstroVastu application, including floor-plan processing, directional analysis, and application architecture.',
+    'Researching Python-based geometric and spatial computation for AstroVastu floor-plan processing, directional orientation mapping, and backend service architecture.',
   areas: [
-    'Vastu Shastra directional & building orientation concepts',
-    'Floor-plan geometric processing with Python Shapely & NumPy',
-    'Spatial calculations and competitor workflow analysis',
-    'FastAPI backend & frontend architecture planning',
+    'Vastu Shastra directional & building orientation mapping',
+    'Floor-plan polygon & point-in-polygon analysis with Shapely & NumPy',
+    'Spatial zone calculations and coordinate geometry processing',
+    'FastAPI service architecture and JSON serialization design',
   ],
-  tech: ['Python', 'Shapely', 'NumPy', 'FastAPI (Exploration)', 'Spatial Geometry'],
+  tech: ['Python', 'Shapely', 'NumPy', 'FastAPI', 'Spatial Geometry'],
 };

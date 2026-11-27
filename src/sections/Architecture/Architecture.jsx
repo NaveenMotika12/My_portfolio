@@ -31,10 +31,10 @@ export default function Architecture() {
             </p>
             <div className={styles.serviceGrid}>
               {grahavaniServices.map((svc) => (
-                <div key={svc.port} className={styles.serviceCard}>
+                <div key={svc.name} className={styles.serviceCard}>
                   <div className={styles.serviceTop}>
                     <span className={styles.serviceName}>{svc.name}</span>
-                    <span className={styles.portBadge}>:{svc.port}</span>
+                    <span className={styles.portBadge}>{svc.layer}</span>
                   </div>
                   <p className={styles.serviceRole}>{svc.role}</p>
                 </div>
@@ -45,10 +45,10 @@ export default function Architecture() {
           <div className={`${styles.panel} glass-panel card-3d`}>
             <div className={styles.panelHead}>
               <Cpu size={20} className={styles.icon} aria-hidden="true" />
-              <h3 className={styles.panelTitle}>AI &amp; RAG Integration Exposure</h3>
+              <h3 className={styles.panelTitle}>AI &amp; RAG Systems</h3>
             </div>
             <p className={styles.panelDesc}>
-              Practical API integration, semantic retrieval, and response troubleshooting (using external LLM APIs, not model training).
+              Production AI integrations, vector retrieval pipelines, and multi-model API orchestration.
             </p>
             <div className={styles.aiList}>
               {aiIntegrationHighlights.map((block) => (

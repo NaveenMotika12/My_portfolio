@@ -8,8 +8,8 @@ import styles from './Hero.module.css';
 
 const STREAM_STEPS = [
   { node: 'React / RN Client', detail: 'JSX · Hooks · State', status: 'UI' },
-  { node: 'API Gateway :8080', detail: 'REST · Rate Limit · CORS', status: '200' },
-  { node: 'Auth & Express :3001', detail: 'JWT · Middleware · Validation', status: 'OK' },
+  { node: 'API Gateway', detail: 'REST · Rate Limit · CORS', status: '200' },
+  { node: 'Auth & Core Services', detail: 'JWT · Middleware · Validation', status: 'OK' },
   { node: 'Redis Cache', detail: 'Semantic & Session Cache', status: 'HIT' },
   { node: 'PostgreSQL + pgvector', detail: 'Relational + Vector Search', status: 'SQL' },
   { node: 'FastAPI + Gemini RAG', detail: 'AI Context & Streaming', status: 'AI' },
