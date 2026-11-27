@@ -8,7 +8,8 @@ import { certifications, educationList } from '../../data/education';
 import styles from './ResumeModal.module.css';
 
 /**
- * Clean, high-readability ATS Resume preview synced with src/data/*.js.
+ * High-contrast, consistent ATS Resume preview synced with src/data/*.js.
+ * Uses 2-line entry headers, crisp typography, and @page A4 print formatting.
  */
 export default function ResumeModal({ isOpen, onClose }) {
   useEffect(() => {
@@ -50,33 +51,33 @@ export default function ResumeModal({ isOpen, onClose }) {
             <h1 className={styles.name}>{profile.name.toUpperCase()}</h1>
             <p className={styles.role}>{profile.role.toUpperCase()}</p>
             <p className={styles.stackBar}>
-              React.js | React Native | Node.js | TypeScript | Python | PostgreSQL
+              React.js &nbsp;|&nbsp; React Native &nbsp;|&nbsp; Node.js &nbsp;|&nbsp; TypeScript &nbsp;|&nbsp; Python &nbsp;|&nbsp; PostgreSQL
             </p>
             <p className={styles.contactLine}>
-              {profile.contact.phone} &nbsp;|&nbsp; {profile.contact.email} &nbsp;|&nbsp; {profile.location}
+              {profile.contact.phone} &nbsp;•&nbsp; {profile.contact.email} &nbsp;•&nbsp; {profile.location}
             </p>
             <p className={styles.contactLine}>
-              {profile.contact.linkedin.replace('https://www.', '')} &nbsp;|&nbsp;{' '}
+              {profile.contact.linkedin.replace('https://www.', '')} &nbsp;•&nbsp;{' '}
               {profile.contact.github.replace('https://', '')}
             </p>
           </header>
 
           <section className={styles.sec}>
             <h2 className={styles.secTitle}>PROFESSIONAL SUMMARY</h2>
-            <p className={styles.summaryText}>{profile.aboutParagraphs[0]}</p>
-            <p className={styles.summaryText}>{profile.aboutParagraphs[1]}</p>
+            <p className={styles.bodyText}>{profile.aboutParagraphs[0]}</p>
+            <p className={styles.bodyText}>{profile.aboutParagraphs[1]}</p>
           </section>
 
           <section className={styles.sec}>
             <h2 className={styles.secTitle}>TECHNICAL SKILLS</h2>
-            <div className={styles.skillsTable}>
+            <div className={styles.skillsList}>
               {skillCategories.map((cat) => (
-                <div key={cat.id} className={styles.skillRow}>
-                  <span className={styles.skillCat}>{cat.title}:</span>
+                <p key={cat.id} className={styles.skillLine}>
+                  <strong className={styles.skillCat}>{cat.title}:</strong>{' '}
                   <span className={styles.skillItems}>
                     {cat.skills.map((s) => s.name).join(', ')}
                   </span>
-                </div>
+                </p>
               ))}
             </div>
           </section>
@@ -85,15 +86,13 @@ export default function ResumeModal({ isOpen, onClose }) {
             <h2 className={styles.secTitle}>PROFESSIONAL EXPERIENCE</h2>
             {experiences.map((exp) => (
               <div key={exp.id} className={styles.entry}>
-                <div className={styles.entryHeader}>
-                  <div>
-                    <strong className={styles.entryTitle}>{exp.role}</strong>
-                    <span className={styles.entrySub}> — {exp.company}</span>
-                  </div>
-                  <div className={styles.entryRight}>
-                    <span>{exp.period}</span>
-                    <span className={styles.entryLoc}>{exp.location}</span>
-                  </div>
+                <div className={styles.entryRow}>
+                  <strong className={styles.entryPrimary}>{exp.role}</strong>
+                  <span className={styles.entryDate}>{exp.period}</span>
+                </div>
+                <div className={styles.entrySubRow}>
+                  <span className={styles.entryCompany}>{exp.company}</span>
+                  <span className={styles.entryLoc}>{exp.location}</span>
                 </div>
                 <ul className={styles.bullets}>
                   {exp.responsibilities.map((r, i) => (
@@ -108,15 +107,13 @@ export default function ResumeModal({ isOpen, onClose }) {
             <h2 className={styles.secTitle}>SELECTED PROJECTS</h2>
             {projects.slice(0, 6).map((proj) => (
               <div key={proj.id} className={styles.entry}>
-                <div className={styles.entryHeader}>
-                  <div>
-                    <strong className={styles.entryTitle}>{proj.title}</strong>
-                  </div>
-                  <span className={styles.entryRight}>{proj.timeline}</span>
+                <div className={styles.entryRow}>
+                  <strong className={styles.entryPrimary}>{proj.title}</strong>
+                  <span className={styles.entryDate}>{proj.timeline}</span>
                 </div>
                 <p className={styles.projDesc}>{proj.description}</p>
                 <p className={styles.projStack}>
-                  <strong>Technologies:</strong> {proj.techStack.join(', ')}
+                  <strong>Tech Stack:</strong> {proj.techStack.join(', ')}
                 </p>
               </div>
             ))}
@@ -126,15 +123,15 @@ export default function ResumeModal({ isOpen, onClose }) {
             <h2 className={styles.secTitle}>EDUCATION</h2>
             <div className={styles.eduList}>
               {educationList.map((edu) => (
-                <div key={edu.id} className={styles.entryHeader}>
-                  <div>
-                    <strong className={styles.entryTitle}>{edu.degree}</strong>
-                    <span className={styles.entrySub}>
-                      {' '}
-                      | {edu.institution} ({edu.details})
-                    </span>
+                <div key={edu.id} className={styles.eduItem}>
+                  <div className={styles.entryRow}>
+                    <strong className={styles.entryPrimary}>{edu.degree}</strong>
+                    <span className={styles.entryDate}>{edu.period}</span>
                   </div>
-                  <span className={styles.entryRight}>{edu.period}</span>
+                  <div className={styles.entrySubRow}>
+                    <span className={styles.entryCompany}>{edu.institution}</span>
+                    <span className={styles.entryLoc}>{edu.details}</span>
+                  </div>
                 </div>
               ))}
             </div>
