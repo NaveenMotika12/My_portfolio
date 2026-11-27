@@ -81,8 +81,20 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.iconLink}
-                      aria-label={`${project.title} live demo`}
-                      title="Live Demo"
+                      aria-label={`${project.title} live website`}
+                      title="Visit Live Website"
+                    >
+                      <ExternalLink size={17} />
+                    </a>
+                  )}
+                  {project.adminUrl && (
+                    <a
+                      href={project.adminUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.iconLink}
+                      aria-label={`${project.title} admin portal`}
+                      title="Admin Portal"
                     >
                       <ExternalLink size={17} />
                     </a>

@@ -1,6 +1,6 @@
 /**
  * Portfolio projects catalog.
- * Cleanly structured with role, timeline, features, architecture, and tech stack.
+ * Only deployed projects include liveUrl; undeployed projects leave liveUrl empty.
  */
 export const projects = [
   {
@@ -22,7 +22,27 @@ export const projects = [
       'Microservices via API Gateway (8080): Auth (3001), User (3002), Client (3008), Learning (3013), Astro Proxy (3014) + Socket.IO',
     techStack: ['React.js', 'TypeScript', 'Node.js', 'Express.js', 'PostgreSQL', 'Redis', 'Gemini API', 'pgvector', 'Docker'],
     githubUrl: 'https://github.com/NaveenMotika12',
-    liveUrl: '',
+    liveUrl: 'https://app.grahvani.in/login',
+  },
+  {
+    id: 'corporate-astro',
+    title: 'Corporate Astro – Consultation & Booking Platform',
+    category: 'Production & Full Stack',
+    scopeBadge: 'Full Stack · Booking',
+    timeline: '2025 – Present',
+    description:
+      'Corporate astrology platform supporting personal and business consultation services, user management, date/time slot selection, and end-to-end appointment booking workflows.',
+    role: 'Full Stack Developer',
+    features: [
+      'User registration, authentication, and personal & business consultation services',
+      'Consultation booking workflow with date/time slot selection and status tracking',
+      'Admin booking management, REST API development, and database integration',
+      'Responsive frontend implementation, production support, and bug fixing',
+    ],
+    architectureNote: 'Full-stack consultation booking platform with REST APIs and relational database.',
+    techStack: ['React.js', 'Node.js', 'Express.js', 'REST APIs', 'PostgreSQL', 'Authentication'],
+    githubUrl: 'https://github.com/NaveenMotika12',
+    liveUrl: 'https://corporateastro.com/',
   },
   {
     id: 'gowraj',
@@ -38,10 +58,11 @@ export const projects = [
       'Shiprocket shipping, pickup scheduling, and return/reverse-pickup workflows',
       'Admin Order Details, order status management, and COD order handling',
     ],
-    architectureNote: 'React.js storefront with Node.js/Express.js APIs deployed via Coolify.',
+    architectureNote: 'React.js storefront & admin portal with Node.js/Express.js APIs deployed via Coolify.',
     techStack: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'Razorpay', 'Shiprocket', 'Coolify'],
     githubUrl: 'https://github.com/NaveenMotika12',
-    liveUrl: '',
+    liveUrl: 'https://gowraj.in/',
+    adminUrl: 'https://admin.gowraj.com/',
   },
   {
     id: 'astro-ratan',
@@ -60,7 +81,7 @@ export const projects = [
     architectureNote: 'Independent Python FastAPI backend with dual-LLM API integration.',
     techStack: ['Python', 'FastAPI', 'OpenAI API', 'Google Gemini API', 'REST APIs'],
     githubUrl: 'https://github.com/NaveenMotika12',
-    liveUrl: '',
+    liveUrl: 'https://astroratan.ai/',
   },
   {
     id: 'astrocorp-web',
@@ -79,7 +100,7 @@ export const projects = [
     architectureNote: 'React.js frontend integrated with Node.js REST APIs.',
     techStack: ['React.js', 'JavaScript', 'Node.js', 'REST APIs', 'Git'],
     githubUrl: 'https://github.com/NaveenMotika12',
-    liveUrl: '',
+    liveUrl: 'https://astrocorp.in/',
   },
   {
     id: 'astro-engine',
