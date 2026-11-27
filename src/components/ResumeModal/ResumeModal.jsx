@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Printer, X } from 'lucide-react';
 import { profile } from '../../data/profile';
+import { siteConfig } from '../../config/siteConfig';
 import { skillCategories } from '../../data/skills';
 import { experiences } from '../../data/experience';
 import { projects } from '../../data/projects';
@@ -57,6 +58,7 @@ export default function ResumeModal({ isOpen, onClose }) {
               {profile.contact.phone} &nbsp;•&nbsp; {profile.contact.email} &nbsp;•&nbsp; {profile.location}
             </p>
             <p className={styles.contactLine}>
+              Portfolio: {siteConfig.siteUrl.replace('https://', '')} &nbsp;•&nbsp;{' '}
               {profile.contact.linkedin.replace('https://www.', '')} &nbsp;•&nbsp;{' '}
               {profile.contact.github.replace('https://', '')}
             </p>
