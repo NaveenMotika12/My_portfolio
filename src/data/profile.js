@@ -15,7 +15,7 @@ export const profile = {
   experienceYears: '2.5+ Years',
   location: 'Hyderabad, Telangana, India',
   availabilityText: 'Open to Full Stack & Backend Opportunities',
-  profileImage: '/profile-placeholder.svg', // Replace with '/profile.jpg' after adding your photo in public/
+  profileImage: '/profile.jpg',
   headline: 'Building scalable web platforms, backend microservices, and AI-powered workflows.',
   shortBio:
     'Full Stack Developer with 2.5+ years of experience developing web applications, REST APIs, database integrations, and AI-powered application features.',
@@ -43,7 +43,7 @@ export const profile = {
     email: 'naveenmotika9652@gmail.com',
     location: 'Hyderabad, Telangana, India',
     github: 'https://github.com/NaveenMotika12',
-    linkedin: 'https://www.linkedin.com/in/[PLACEHOLDER-LINKEDIN-USERNAME]',
+    linkedin: 'https://www.linkedin.com/in/naveen-motika-438510198',
     resumeUrl: '/resume.pdf', // Place your actual PDF inside public/resume.pdf
     resumeFileName: 'Motika_Naveen_Resume.pdf',
   },

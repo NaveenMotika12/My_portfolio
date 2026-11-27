@@ -8,7 +8,7 @@ import styles from './Hero.module.css';
 /**
  * Hero section with live typing role indicator, profile avatar, and 3D glassmorphic terminal card.
  */
-export default function Hero() {
+export default function Hero({ onOpenResume }) {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -72,14 +72,14 @@ export default function Hero() {
             </a>
 
             {siteConfig.showResumeButton && (
-              <a
-                href={profile.contact.resumeUrl}
-                download={profile.contact.resumeFileName}
+              <button
+                type="button"
+                onClick={onOpenResume}
                 className={`${styles.secondaryBtn} glass-panel`}
               >
                 <Download size={17} aria-hidden="true" />
-                <span>Download Resume</span>
-              </a>
+                <span>View / Download Resume</span>
+              </button>
             )}
           </div>
 

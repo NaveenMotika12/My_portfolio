@@ -10,7 +10,7 @@ import styles from './Contact.module.css';
  * Contact section with direct email copy, social links, resume download,
  * and a zero-dependency mailto message composer.
  */
-export default function Contact() {
+export default function Contact({ onOpenResume }) {
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
@@ -108,14 +108,10 @@ export default function Contact() {
                 <span>LinkedIn</span>
               </a>
               {siteConfig.showResumeButton && (
-                <a
-                  href={profile.contact.resumeUrl}
-                  download={profile.contact.resumeFileName}
-                  className={styles.socialBtn}
-                >
+                <button type="button" onClick={onOpenResume} className={styles.socialBtn}>
                   <Download size={17} aria-hidden="true" />
                   <span>Resume</span>
-                </a>
+                </button>
               )}
             </div>
           </div>

@@ -1,24 +1,24 @@
-import { Calendar, GraduationCap, MapPin } from 'lucide-react';
+import { Award, Calendar, GraduationCap, MapPin } from 'lucide-react';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
-import { educationList } from '../../data/education';
+import { certifications, educationList } from '../../data/education';
 import styles from './Education.module.css';
 
 /**
- * Education section rendered from src/data/education.js.
+ * Education & Certifications section rendered from src/data/education.js.
  */
 export default function Education() {
   return (
     <section id="education" className="section-alt">
       <div className="container">
         <SectionHeader
-          eyebrow="06. Education"
-          title="Academic background"
-          subtitle="Formal qualifications and foundational computer science studies."
+          eyebrow="06. Education & Certifications"
+          title="Academic background & credentials"
+          subtitle="Formal qualifications, technical training, and verified certifications."
         />
 
         <div className={styles.list}>
           {educationList.map((edu) => (
-            <article key={edu.id} className={styles.card}>
+            <article key={edu.id} className={`${styles.card} glass-panel card-3d`}>
               <div className={styles.iconBox}>
                 <GraduationCap size={24} aria-hidden="true" />
               </div>
@@ -47,6 +47,22 @@ export default function Education() {
             </article>
           ))}
         </div>
+
+        {certifications?.length > 0 && (
+          <div className={`${styles.certBox} glass-panel`}>
+            <div className={styles.certHeader}>
+              <Award size={20} className={styles.certIcon} aria-hidden="true" />
+              <h3 className={styles.certTitle}>Certifications</h3>
+            </div>
+            <ul className={styles.certGrid}>
+              {certifications.map((cert) => (
+                <li key={cert} className={styles.certItem}>
+                  {cert}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -9,7 +9,7 @@ import styles from './Navbar.module.css';
 /**
  * Sticky responsive navigation bar with mobile drawer and theme switcher.
  */
-export default function Navbar({ theme, onToggleTheme }) {
+export default function Navbar({ theme, onToggleTheme, onOpenResume }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -39,14 +39,10 @@ export default function Navbar({ theme, onToggleTheme }) {
 
         <div className={styles.actions}>
           {siteConfig.showResumeButton && (
-            <a
-              href={profile.contact.resumeUrl}
-              download={profile.contact.resumeFileName}
-              className={styles.resumeBtn}
-            >
+            <button type="button" onClick={onOpenResume} className={styles.resumeBtn}>
               <Download size={15} aria-hidden="true" />
               <span>Resume</span>
-            </a>
+            </button>
           )}
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           <button
@@ -74,15 +70,17 @@ export default function Navbar({ theme, onToggleTheme }) {
               ))}
               {siteConfig.showResumeButton && (
                 <li>
-                  <a
-                    href={profile.contact.resumeUrl}
-                    download={profile.contact.resumeFileName}
+                  <button
+                    type="button"
                     className={styles.mobileResumeLink}
-                    onClick={closeMenu}
+                    onClick={() => {
+                      closeMenu();
+                      onOpenResume();
+                    }}
                   >
                     <Download size={16} aria-hidden="true" />
-                    <span>Download Resume</span>
-                  </a>
+                    <span>View / Download Resume</span>
+                  </button>
                 </li>
               )}
             </ul>

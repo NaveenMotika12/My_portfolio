@@ -140,3 +140,13 @@ img {
     transform: translateY(-3px);
   }
 }
+
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

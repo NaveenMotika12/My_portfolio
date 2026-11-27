@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { siteConfig } from './config/siteConfig';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import ResumeModal from './components/ResumeModal/ResumeModal';
 import Hero from './sections/Hero/Hero';
 import About from './sections/About/About';
 import Skills from './sections/Skills/Skills';
@@ -12,7 +13,7 @@ import Education from './sections/Education/Education';
 import Contact from './sections/Contact/Contact';
 
 /**
- * Root application component managing theme state, scroll progress, and sections.
+ * Root application component managing theme state, scroll progress, resume modal, and sections.
  */
 export default function App() {
   const [theme, setTheme] = useState(() => {
@@ -20,6 +21,7 @@ export default function App() {
     return saved === 'light' || saved === 'dark' ? saved : siteConfig.defaultTheme;
   });
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -41,23 +43,28 @@ export default function App() {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
+  const openResume = () => setResumeOpen(true);
+
   return (
     <>
-      <div className="scroll-progress-track" aria-hidden="true">
-        <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} />
+      <div className="no-print">
+        <div className="scroll-progress-track" aria-hidden="true">
+          <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} />
+        </div>
+        <Navbar theme={theme} onToggleTheme={toggleTheme} onOpenResume={openResume} />
+        <main>
+          <Hero onOpenResume={openResume} />
+          <About />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Architecture />
+          <Education />
+          <Contact onOpenResume={openResume} />
+        </main>
+        <Footer />
       </div>
-      <Navbar theme={theme} onToggleTheme={toggleTheme} />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Architecture />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
+      <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
     </>
   );
 }
