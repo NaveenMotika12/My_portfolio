@@ -1,0 +1,66 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.paragraph {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.highlightCard {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.highlightCard:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-2px);
+}
+
+.highlightLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.highlightValue {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+  }
+}
