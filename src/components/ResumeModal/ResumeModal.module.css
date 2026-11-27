@@ -278,3 +278,17 @@
     max-width: 100%;
   }
 }
+
+.resumeLink {
+  color: #1e3a8a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.projLink {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

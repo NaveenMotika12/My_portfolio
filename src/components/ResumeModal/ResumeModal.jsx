@@ -9,8 +9,8 @@ import { certifications, educationList } from '../../data/education';
 import styles from './ResumeModal.module.css';
 
 /**
- * High-contrast, consistent ATS Resume preview synced with src/data/*.js.
- * Uses 2-line entry headers, crisp typography, and @page A4 print formatting.
+ * High-contrast, ATS-friendly Resume preview synced with src/data/*.js.
+ * Uses real <a> tags so exported PDF links (Email, Portfolio, LinkedIn, GitHub, Live Projects) are clickable.
  */
 export default function ResumeModal({ isOpen, onClose }) {
   useEffect(() => {
@@ -55,19 +55,51 @@ export default function ResumeModal({ isOpen, onClose }) {
               React.js &nbsp;|&nbsp; React Native &nbsp;|&nbsp; Node.js &nbsp;|&nbsp; TypeScript &nbsp;|&nbsp; Python &nbsp;|&nbsp; PostgreSQL
             </p>
             <p className={styles.contactLine}>
-              {profile.contact.phone} &nbsp;•&nbsp; {profile.contact.email} &nbsp;•&nbsp; {profile.location}
+              <a href={`tel:${profile.contact.phone.replace(/\s+/g, '')}`} className={styles.resumeLink}>
+                {profile.contact.phone}
+              </a>
+              {' '}•{' '}
+              <a href={`mailto:${profile.contact.email}`} className={styles.resumeLink}>
+                {profile.contact.email}
+              </a>
+              {' '}•{' '}
+              <span>{profile.location}</span>
             </p>
             <p className={styles.contactLine}>
-              Portfolio: {siteConfig.siteUrl.replace('https://', '')} &nbsp;•&nbsp;{' '}
-              {profile.contact.linkedin.replace('https://www.', '')} &nbsp;•&nbsp;{' '}
-              {profile.contact.github.replace('https://', '')}
+              <a
+                href={siteConfig.siteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.resumeLink}
+              >
+                Portfolio: {siteConfig.siteUrl.replace('https://', '')}
+              </a>
+              {' '}•{' '}
+              <a
+                href={profile.contact.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.resumeLink}
+              >
+                {profile.contact.linkedin.replace('https://www.', '')}
+              </a>
+              {' '}•{' '}
+              <a
+                href={profile.contact.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.resumeLink}
+              >
+                {profile.contact.github.replace('https://', '')}
+              </a>
             </p>
           </header>
 
           <section className={styles.sec}>
             <h2 className={styles.secTitle}>PROFESSIONAL SUMMARY</h2>
-            <p className={styles.bodyText}>{profile.aboutParagraphs[0]}</p>
-            <p className={styles.bodyText}>{profile.aboutParagraphs[1]}</p>
+            <p className={styles.bodyText}>
+              Full Stack Developer with 2.5+ years of experience building and maintaining web and mobile applications, backend microservices, REST APIs, database integrations, and AI-powered RAG workflows using React.js, React Native, Node.js, Express.js, TypeScript, Python, FastAPI, PostgreSQL, and Redis.
+            </p>
           </section>
 
           <section className={styles.sec}>
@@ -77,7 +109,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 <p key={cat.id} className={styles.skillLine}>
                   <strong className={styles.skillCat}>{cat.title}:</strong>{' '}
                   <span className={styles.skillItems}>
-                    {cat.skills.map((s) => s.name).join(', ')}
+                    {cat.skills.map((s) => (typeof s === 'string' ? s : s.name)).join(', ')}
                   </span>
                 </p>
               ))}
@@ -110,7 +142,22 @@ export default function ResumeModal({ isOpen, onClose }) {
             {projects.slice(0, 6).map((proj) => (
               <div key={proj.id} className={styles.entry}>
                 <div className={styles.entryRow}>
-                  <strong className={styles.entryPrimary}>{proj.title}</strong>
+                  <div>
+                    <strong className={styles.entryPrimary}>{proj.title}</strong>
+                    {proj.liveUrl && (
+                      <>
+                        {' '}
+                        <a
+                          href={proj.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.projLink}
+                        >
+                          ({proj.liveUrl.replace('https://', '').replace(/\/$/, '')})
+                        </a>
+                      </>
+                    )}
+                  </div>
                   <span className={styles.entryDate}>{proj.timeline}</span>
                 </div>
                 <p className={styles.projDesc}>{proj.description}</p>
