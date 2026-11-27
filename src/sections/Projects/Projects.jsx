@@ -14,7 +14,7 @@ const CATEGORIES = [
 ];
 
 /**
- * Filterable Projects showcase with clear distinction between production, integration, and exploration.
+ * Clean, scannable Projects showcase with category filters.
  */
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -29,8 +29,8 @@ export default function Projects() {
       <div className="container">
         <SectionHeader
           eyebrow="04. Projects"
-          title="Real-world platforms & technical builds"
-          subtitle="Each project clearly separates hands-on implementation, API integration, production support, and architecture exploration."
+          title="Selected platforms & engineering work"
+          subtitle="Filter by domain to explore full-stack production apps, AI/backend services, and system architecture."
         />
 
         <div className={styles.filterBar} role="tablist" aria-label="Filter projects by category">
@@ -52,10 +52,16 @@ export default function Projects() {
           {filteredProjects.map((project) => (
             <article key={project.id} className={`${styles.card} glass-panel card-3d`}>
               <div className={styles.cardTop}>
-                <div className={styles.folderIcon}>
-                  <FolderGit2 size={21} aria-hidden="true" />
+                <div className={styles.topLeft}>
+                  <div className={styles.folderIcon}>
+                    <FolderGit2 size={20} aria-hidden="true" />
+                  </div>
+                  <div className={styles.topMeta}>
+                    <span className={styles.scopeBadge}>{project.scopeBadge}</span>
+                    <span className={styles.timeline}>{project.timeline}</span>
+                  </div>
                 </div>
-                <span className={styles.scopeBadge}>{project.scopeBadge}</span>
+
                 <div className={styles.links}>
                   {project.githubUrl && (
                     <a
@@ -84,13 +90,11 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className={styles.metaLine}>
-                <span className={styles.category}>{project.category}</span>
-                <span className={styles.timeline}>{project.timeline}</span>
+              <div className={styles.titleBlock}>
+                <h3 className={styles.title}>{project.title}</h3>
+                <p className={styles.role}>{project.role}</p>
               </div>
 
-              <h3 className={styles.title}>{project.title}</h3>
-              <p className={styles.role}>{project.role}</p>
               <p className={styles.description}>{project.description}</p>
 
               {project.features?.length > 0 && (
